@@ -4,7 +4,9 @@ class UrlManager:
     """
 
     def __init__(self):
+        # new_urls为待爬取的网页列表
         self.new_urls = set()
+        # old_urls为已爬取的网页列表
         self.old_urls = set()
 
     def add_new_url(self, url):
@@ -15,7 +17,7 @@ class UrlManager:
         self.new_urls.add(url)
 
     def add_new_urls(self, urls):
-        if url == None or len(url) == 0:
+        if urls == None or len(urls) == 0:
             return
         for url in urls:
             self.add_new_url(url)
@@ -31,16 +33,17 @@ class UrlManager:
     def has_new_url(self):
         return len(self.new_urls) > 0
 
-if __name__ == "__main__":
-    url_manager =  UrlManager()
 
-    url_manager.add_new_urls("url1")
-    url_manager.add_new_urls(["url1","url2"])
-    print(url_manager.new_urls,url_manager.old_urls)
+if __name__ == "__main__":
+    url_manager = UrlManager()
+
+    url_manager.add_new_url("url1")
+    url_manager.add_new_urls(["url1", "url2"])
+    print(url_manager.new_urls, url_manager.old_urls)
 
     print("#" * 30)
     new_url = url_manager.get_url()
-    print(url_manager.new_urls,url_manager.old_urls)
+    print(url_manager.new_urls, url_manager.old_urls)
 
     print("#" * 30)
     new_url = url_manager.get_url()
