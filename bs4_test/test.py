@@ -7,7 +7,7 @@ print(html_doc)
 print('#' * 30)
 
 soup = BeautifulSoup(html_doc, "html.parser")
-div_node = soup.find('div',id='content')
+div_node = soup.find('div', id='content')
 print(div_node)
 print("#" * 30)
 
